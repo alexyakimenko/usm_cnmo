@@ -1,5 +1,7 @@
 import math
 
+from typing import Callable
+
 from methods.bisection import bisection_method
 from methods.chord import chord_method
 from methods.newton import newton_method
@@ -9,7 +11,7 @@ from methods.simple_iter import simple_iter_method
 def function(x: float) -> float:
     return math.exp(-0.5 * x) - 0.2 * x**2 + 1.0
 
-def derivative(f, x, delta_x=1e-6):
+def derivative(f: Callable, x: float, delta_x: float = 1e-6):
     return (f(x + delta_x) - f(x)) / delta_x
 
 if __name__ == '__main__':
